@@ -2,3 +2,4 @@ https://hub.docker.com/r/vchaws/vchnginx-master
 https://hub.docker.com/r/vchaws/vchnginx-devel
 https://hub.docker.com/r/vchaws/vchnginx-test
 http://test-project.vl-ch.com:8080/
+http://test-project.vl-ch.com:8081/  (test branch)
