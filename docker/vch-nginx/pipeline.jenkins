@@ -66,7 +66,10 @@ pipeline {
                 '''
                 }
             }
-       stage("docker push devel") {
+       stage("docker push devel") { when {
+                expression { env.BRANCH_NAME == 'devel' }
+            }
+           
             steps {
                 echo " ============== start pushing devel image =================="
                 sh '''
@@ -74,7 +77,10 @@ pipeline {
                 '''
                 }
             } 
-        stage("docker push test") {
+        stage("docker push test") { when {
+                expression { env.BRANCH_NAME == 'test' }
+            }
+            
             steps {
                 echo " ============== start pushing test image =================="
                 sh '''
