@@ -59,7 +59,7 @@ pipeline {
             steps {
                 echo " ============== start pushing master image =================="
                 sh '''
-                docker push vchaws/vchnginx-master:latest
+                sudo docker push vchaws/vchnginx-master:latest
                 '''
                 }
             }
@@ -67,7 +67,7 @@ pipeline {
             steps {
                 echo " ============== start pushing devel image =================="
                 sh '''
-                docker push vchaws/vchnginx-devel:latest
+                sudo docker push vchaws/vchnginx-devel:latest
                 '''
                 }
             } 
@@ -75,7 +75,7 @@ pipeline {
             steps {
                 echo " ============== start deploing  devel image =================="
                 sh '''
-                cd /home/ubuntu/test_project/docker/vch-nginx && ansible-playbook -l linux1 deploy_container_devel.yaml
+                sudo cd /home/ubuntu/test_project/docker/vch-nginx && ansible-playbook -l linux1 deploy_container_devel.yaml
                 '''
                 }
             }
@@ -83,7 +83,7 @@ pipeline {
             steps {
                 echo " ============== start pushing test image =================="
                 sh '''
-                docker push vchaws/vchnginx-test:latest
+                sudo docker push vchaws/vchnginx-test:latest
                 '''
                 }
             }
