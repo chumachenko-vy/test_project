@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo " ============== start building master image =================="
                 dir ('docker/vch-nginx') {
-                	sh 'docker build -t vchaws/vchnginx-master:latest . '
+                	sh 'sudo docker build -t vchaws/vchnginx-master:latest . '
                 }
             }
         }
@@ -40,7 +40,7 @@ pipeline {
             steps {
                 echo " ============== start building devel image =================="
                 dir ('docker/vch-nginx') {
-                	sh 'docker build -t vchaws/vchnginx-devel:latest . '
+                	sh 'sudo docker build -t vchaws/vchnginx-devel:latest . '
                 }
             }
         }
@@ -51,7 +51,7 @@ pipeline {
             steps {
                 echo " ============== start building test image =================="
                 dir ('docker/vch-nginx') {
-                	sh 'docker build -t vchaws/vchnginx-test:latest . '
+                	sh 'sudo docker build -t vchaws/vchnginx-test:latest . '
                 }
             }
         }
