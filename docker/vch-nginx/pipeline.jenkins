@@ -4,7 +4,7 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent { 
-        label 'master'
+        label 'docker_deploy'
         }
    // triggers { pollSCM('* * * * *') }
     options {
@@ -71,6 +71,14 @@ pipeline {
                 '''
                 }
             } 
+        stage("deploy devel") {
+            steps {
+                echo " ============== start deploing  devel image =================="
+                sh '''
+                cd /home/ubuntu/test_project/docker/vch-nginx && ansible-playbook -l linux1 deploy_container_devel.yaml
+                '''
+                }
+            }
         stage("docker push test") {
             steps {
                 echo " ============== start pushing test image =================="
